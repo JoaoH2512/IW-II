@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Nome -->
+    <input type="text" name="" id="nome" onkeyup="contador()" placeholder="Digite seu Nome">
+    <br>
+    <br>
+     <!-- Email -->
+    <input type="email" name="" id="email" placeholder="Digite seu Email" onblur="verficarEmail()">
+    <button id="botaoEnviar" onclick="enviar()">Enviar</button>
+    <!-- Paragrafo -->
+    <p id="mensagem"></p>
+    <!-- Script -->
+    <script>
+     // função de contar 
+     function contador() {
+        var campotexto = document.getElementById("nome");
+        var quantidade = campotexto.value.length;
+        console.log("Quantidade de caracteres: ",quantidade);
+     }
+     //função de verficar Email
+     function verficarEmail(){      // O trim serve para não deixar espaços em branco para n ocorrer erro, Exemplo: sem trim"Joaoehnrique@gmail.com  ", com trim: "Joaohnrique@gmail.com"
+        var email = document.getElementById("email").value.trim();
+        var mensagem = document.getElementById("mensagem");
+          if (email == ""){
+            mensagem.textContent = "Por favor, preencha o e-mail";
+        } else {
+            mensagem.textContent = "";
+        }
+
+     }
+     //função do botão
+     function enviar(){
+      var nome = document.getElementById("nome").value;
+      var email = document.getElementById("email").value;
+      var mensagem = document.getElementById("mensagem");
+      if (nome === "" || email.trim() === "") {
+        mensagem.textContent = "Por favor, preencha todos os campos.";
+        return;
+      }
+      mensagem.textContent = "Obrigado, "+ nome + " seus dados foram enviados com sucesso.";
+     }
+
+    </script>
+</body>
+</html>
